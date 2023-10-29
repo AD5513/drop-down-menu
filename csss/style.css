@@ -1,0 +1,132 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+.nav {
+  width: 100%;
+  height: 100vh;
+  background-color: #33333375;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -100%;
+  left: 0;
+  /* transform: translate(); */
+  transition: 0.5s;
+}
+
+.nav-menu > li {
+  margin: 15px 0;
+  text-align: center;
+}
+
+.nav-menu > li:first-child {
+  margin-top: 0;
+}
+
+.nav-menu > li:last-child {
+  margin-bottom: 0;
+}
+
+.nav-menu > li > a {
+  color: white;
+  font-size: 30px;
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+}
+
+.nav-menu > li > a:after {
+  content: "";
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, transparent, red, transparent);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%) scale(0);
+  transition: 0.5s;
+}
+
+.nav-menu > li > a:hover::after {
+  transform: translate(0, -50%) scale(1);
+}
+.btn-menu {
+  display: none;
+}
+
+label[for="btn-nav"] {
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#btn-nav:checked ~ .nav {
+  top: 0;
+}
+
+.line {
+  width: 100%;
+  height: 3px;
+  background-color: black;
+  position: absolute;
+  transition: 0.5s;
+}
+
+.line1 {
+  top: 0;
+  left: 0;
+}
+
+.line2 {
+  top: 50%;
+  left: 0;
+}
+
+.line3 {
+  top: 100%;
+  left: 0;
+  transform: translate(0, -100%);
+}
+#btn-nav:checked ~ .label-menu > .line {
+  background-color: white;
+}
+#btn-nav:checked ~ .label-menu .line1,
+#btn-nav:checked ~ .label-menu .line3 {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50);
+}
+
+#btn-nav:checked ~ .label-menu .line2 {
+  display: none;
+}
+
+#btn-nav:checked ~ .label-menu .line1 {
+  transform: translate(0, -50%) rotate(405deg);
+}
+
+#btn-nav:checked ~ .label-menu .line3 {
+  transform: translate(0, -50%) rotate(-45deg);
+}
